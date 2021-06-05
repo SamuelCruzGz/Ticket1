@@ -1,0 +1,102 @@
+  
+<%- include ("cabeceras/cabecera.principal.ejs") %>
+
+<style >
+    .menor {
+        color: red;
+    }
+</style>
+<h2>Responsive Table with DataTables</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
+        <caption class="text-center">An example of a responsive table based on <a href="https://datatables.net/extensions/responsive/" target="_blank">DataTables</a>:</caption>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha de Creación</th>
+            <th>Proyecto</th>
+            <th>Versión</th>
+            <th>Ingresos</th>
+            <th>Egresos</th>
+            <th>Total</th>
+            <th>Acumulado</th>
+            <th>Total Acumulado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          
+            <% if (data) { %>
+                
+                <% for(var i=0; i < data.length; i++) { %>
+                <% let total = (data[i].ingresos - data[i].egresos)%>
+                <%let acumulado =0%>
+                    <tr>
+                        <td>
+                            <%= data[i].id_presupuesto %>
+                        </td>
+                        <td>
+                            <%= data[i].fecha_presupuesto %>
+                        </td>
+                        <td>
+                            <%= data[i].proyecto_presupuesto %>
+                        </td>
+                        <td>
+                            <%= data[i].version_presupuesto %>
+                        </td>
+                        <td>
+                            <%= data[i].ingresos %>
+                        </td>
+                        <td>
+                            <%= data[i].egresos %>
+                        </td>
+                        <td>
+                         
+                            <% if (total <= 0) { %>
+                                <p class="menor"><%= (data[i].ingresos - data[i].egresos).toFixed(2)%></p>
+                                
+                            <%}else{%>
+                                <%= (data[i].ingresos - data[i].egresos).toFixed(2)%>
+                             <%}%>   
+                        </td>
+                        <td>
+                            
+                            <% acumulado = total%> 
+                            <%=acumulado %> 
+                       
+                        </td>
+                        
+                        <td>
+                            <% acumulado = total%> 
+                            <%=acumulado%>
+                        </td>
+                        <td>
+                            <a href="/updateProducto/<%=data[i].id_producto%>"
+                                class="btn btn-info">Editar</a>
+                            <a href="/bajaProducto/<%=data[i].id_producto%>" class="btn btn-danger">
+                                Eliminar</a>
+                        </td>
+                    </tr>
+                    
+                    <% } %>
+                        <% } %>
+          </tr>
+          
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" class="text-center">Data retrieved from <a href="http://www.infoplease.com/ipa/A0855611.html" target="_blank">infoplease</a> and <a href="http://www.worldometers.info/world-population/population-by-country/" target="_blank">worldometers</a>.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p class="p">Demo by George Martsoukos. <a href="http://www.sitepoint.com/responsive-data-tables-comprehensive-list-solutions" target="_blank">See article</a>.</p>
+
+</body>
+</html>
