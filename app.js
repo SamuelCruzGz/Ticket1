@@ -5,6 +5,7 @@ require('dotenv').config()
 const userView = require('./mvc/vista/vista.login')
 const budgetView = require ('./mvc/vista/vista.presupuesto')
 const sequelize = require('./db/db.conexion')
+
 //middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))

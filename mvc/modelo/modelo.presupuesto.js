@@ -50,7 +50,7 @@ module.exports = class ModeloPresupuesto {
        
         try {
             
-            let resultado = await sequelize.query(`select id_presupuesto, fecha_presupuesto,proyecto_presupuesto, version_presupuesto, ingresos, egresos from presupuesto p join flujoEfectivo fE on p.id_flujo = fE.id_flujoE`)
+            let resultado = await sequelize.query(`select id_presupuesto, fecha_presupuesto,proyecto_presupuesto, version_presupuesto,id_flujoE, ingresos, egresos from presupuesto p join flujoEfectivo fE on p.id_flujo = fE.id_flujoE`)
             return resultado   
         } catch (e) {
             console.log(e);
@@ -61,7 +61,7 @@ module.exports = class ModeloPresupuesto {
        
         try {
             
-            let resultado = await sequelize.query(`select id_presupuesto, fecha_presupuesto,proyecto_presupuesto, version_presupuesto, ventas, costos from presupuesto p join resumenFinanciero rF on p.id_resumen = rF.id_resumenF`)
+            let resultado = await sequelize.query(`select id_presupuesto, fecha_presupuesto,proyecto_presupuesto, version_presupuesto,id_resumenF, ventas, costos from presupuesto p join resumenFinanciero rF on p.id_resumen = rF.id_resumenF`)
             return resultado   
         } catch (e) {
             console.log(e);
@@ -69,4 +69,29 @@ module.exports = class ModeloPresupuesto {
         
     }
 
+    static async eliminar (data){
+        let dele = [
+            data
+        ]
+        try {
+            let resultado = await sequelize.query(`DELETE p FROM presupuesto p inner join flujoEfectivo fE on p.id_flujo = fE.id_flujoE where id_flujoE=? `,
+            {replacements: dele, type: sequelize.QueryTypes.SELECT})
+            return resultado 
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    static async eliminarRe (data){
+        let dele = [
+            data
+        ]
+        try {
+            let resultado = await sequelize.query(`DELETE p FROM presupuesto p inner join resumenFinanciero rF on p.id_resumen = rF.id_resumenF where id_resumenF=? `,
+            {replacements: dele, type: sequelize.QueryTypes.SELECT})
+            return resultado 
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }

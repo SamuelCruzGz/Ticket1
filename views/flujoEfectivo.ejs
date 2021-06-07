@@ -63,21 +63,45 @@
                              <%}%>   
                         </td>
                         <td>
+                          
+                          <% if (total <= 0) { %>
+                            <p class="menor">
+                              <% acumulado = total%> 
+                                <%=acumulado.toFixed(2) %> </p>
                             
-                            <% acumulado = total%> 
-                            <%=acumulado %> 
+                        <%}else{%>
+                            
+                          <% acumulado = total%> 
+                          <%=acumulado.toFixed(2) %> 
+                         <%}%>   
+
+
+                            
                        
                         </td>
                         
                         <td>
-                            <% acumulado = total%> 
-                            <%=acumulado%>
+                                  
+                          <% if (total <= 0) { %>
+                            <p class="menor">
+                              <% acumulado = total%> 
+                                <%=acumulado.toFixed(2)%>  </p>
+                            
+                        <%}else{%>
+                       
+                          <% acumulado = total%> 
+                            <%=acumulado.toFixed(2)%> 
+                         <%}%>   
+
+                            
                         </td>
                         <td>
                             <a href="/updateProducto/<%=data[i].id_producto%>"
                                 class="btn btn-info">Editar</a>
-                            <a href="/bajaProducto/<%=data[i].id_producto%>" class="btn btn-danger">
+                            <a href="/deleFlujo/<%=data[i].id_flujoE%>" class="btn btn-danger">
                                 Eliminar</a>
+
+
                         </td>
                     </tr>
                     

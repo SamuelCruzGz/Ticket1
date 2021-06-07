@@ -8,6 +8,25 @@ module.exports = class ControladorUsuarios {
         this.datos = datos
     }
 
+
+    static async profileuser  (){
+        try {
+            let resultado = await login.list()
+            return resultado
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    static async deleUSer(data){
+        try {
+            let resultado = await login.delUser(data)
+            return 'Baja Correcta'
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     static async checkUser(req, res, next){
         try {
             let token = req.headers['authorization']
@@ -56,4 +75,15 @@ module.exports = class ControladorUsuarios {
             throw new Error(e)
         }
     }
+
+    static async createUser (data){
+        try {
+            await login.createUsuario(data)
+            return 'Alta correcta'
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+  
 }

@@ -1,27 +1,35 @@
-<%- include ("cabeceras/cabecera.login.ejs") %>
+  
+      
+  <%- include ("cabeceras/cabecera.login.ejs") %>
 
 
 
   <div class="grid">
 
-    <form action="/login" method="POST" class="form_login">
-      <h1>Login</h1>
+    <form action="/register" method="POST" class="form_login">
+      <h1>Register</h1>
       <div class="form__field">
-        
+        <input autocomplete="nombres"  type="text" name="nombres"  placeholder="Nombre(s)" required="true">
+        <input autocomplete="apellidos"  type="text" name="apellidos"  placeholder="Apellido(s)" required="true">
         <input autocomplete="username"  type="text" name="usuario"  placeholder="Username" required="true" id="usuario">
       </div>
 
       <div class="form__field">
-        <input  type="password" name="pass" placeholder="Password" required="true" id="pass">
+        <input  type="password" name="pass" placeholder="Password" required="true">
+        <input  type="password" name="cpass" placeholder="Confirm Password" required="true">
       </div>
-      <button type="submit" id='boton'>
-        LOGIN
+      <button type="submit" id='boton' >
+        REGISTER
+
+    
+    
     </button>
     <div class="col-md-12">
       <ul class="social-network social-circle">
           <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
           <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
           <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+
       </ul>
   </div>
 
@@ -34,38 +42,37 @@
 
     </form>
 
-    <p class="text--center">Not a member? <a href="/register">Sign up now</a> </p>
+    <p class="text--center"> <a href="/login">Sign in</a> </p>
 
   </div>
   
 
-    <%var data = data%>
-
-    <script>let usr = document.getElementById('usuario')
-    let pass = document.getElementById('pass')
-      let boton = document.getElementById('boton')
-      let res = <%=data%>
-      boton.addEventListener('click', prueba)
-      function prueba(){
-        if (usr != res || pass != res){
-          
-          swal({
-  title: "Failed!",
-  text: "Tu contraseña o usuario son incorrectos",
-  icon: "error",
-});
-        }else{
-          swal({
-  title: "Good job!",
-  text: "You clicked the button!",
-  icon: "success",
-}); 
-        }
-      }   </script>
-  
-      
   
 </script>
+
+<%var data = data%>
+
+<script>let usr = document.getElementById('usuario')
+let pass = document.getElementById('pass')
+  let boton = document.getElementById('boton')
+  let res = <%=data%>
+  boton.addEventListener('click', prueba)
+  function prueba(){
+    if (usr != res || pass != res){
+      
+      swal({
+title: "Failed!",
+text: "Tu contraseña o usuario son incorrectos",
+icon: "error",
+});
+    }else{
+      swal({
+title: "Good job!",
+text: "You clicked the button!",
+icon: "success",
+}); 
+    }
+  }   </script>     
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
     <!--     <script> let user = document.getElementById('usuario')

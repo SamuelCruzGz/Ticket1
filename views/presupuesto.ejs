@@ -1,10 +1,12 @@
 <%-  include ("cabeceras/cabecera.presupuesto.ejs") %>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
 <form action="/nuevoPresupuesto" method="POST">
     <div class="container">
         <div class="row clearfix">
@@ -75,10 +77,10 @@
             </div>
         </div>
         <button type="submit">Agregar</button>
-        <a href="/consulta">Consultar Resumen Financiero</a>
-        <a href="/flujoE">Consultar Flujo de efectivo</a>
-        <a href="/estadoR">Estado de resultados</a>
-        <a id="add_row" class="btn btn-primary float-right">Add Row</a>
+        <a href="/consulta" id="add_row" class="btn btn-primary float-right">Consultar Resumen Financiero</a>
+        <a href="/flujoE" id="add_row" class="btn btn-primary float-right">Consultar Flujo de efectivo</a>
+        <a href="/estadoR" id="add_row" class="btn btn-primary float-right">Estado de resultados</a>
+        <a id="add_row" id="add_row" class="btn btn-primary float-right">Add Row</a>
     </div>
 </form>
 

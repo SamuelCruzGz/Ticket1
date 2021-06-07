@@ -41,4 +41,20 @@ module.exports = class ControladorPresupuesto {
             console.log(e);
         }
     }
+    static async bajaFlujo (data){
+        try {
+            await presupuesto.eliminar(data)
+            return 'Baja correcta'
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    static async bajaResumen (data){
+        try {
+            await presupuesto.eliminarRe(data)
+            return 'Baja correcta'
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }

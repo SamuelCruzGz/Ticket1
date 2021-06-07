@@ -52,4 +52,25 @@ module.exports = async(app) =>{
             console.log(e);
         }
     })
+
+    app.get('/deleFlujo/:id_flujoE',async (req, res)=>{
+        const del = req.params.id_flujoE
+        try {
+            await cont.bajaFlujo(del)
+            res.redirect('/flujoE')
+        } catch (e) {
+            console.log(e);
+        }
+    })
+
+    
+    app.get('/deleResumen/:id_resumenF',async (req, res)=>{
+        const del = req.params.id_resumenF
+        try {
+            await cont.bajaResumen(del)
+            res.redirect('/estadoR')
+        } catch (e) {
+            console.log(e);
+        }
+    })
  }

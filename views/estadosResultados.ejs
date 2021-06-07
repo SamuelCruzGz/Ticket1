@@ -62,19 +62,36 @@
                              <%}%>   
                         </td>
                         <td>
-                            <% let total = margen %>
-                            <%= total%>
+                          <% if (margen <= 0) { %>
+                            <p class="menor"><% let total = margen %>
+                              <%= total.toFixed(2)%></p>
+                            
+                        <%}else{%>
+                          <% let total = margen %>
+                          <%= total.toFixed(2)%>
+                         <%}%>   
+                            
                        
                         </td>
                         <td>
-                            <% let sumatoria = margen %>
-                            <%= sumatoria%>
+                          <% if (margen <= 0) { %>
+                            <p class="menor"><% let sumatoria = margen %>
+                              <%= sumatoria.toFixed(2)%></p>
+                            
+                        <%}else{%>
+                          <% let sumatoria = margen %>
+                          <%= sumatoria.toFixed(2)%>
+                         <%}%>   
+                            
+                       
+
+                            
                        
                         </td>
                         <td>
                             <a href="/updateProducto/<%=data[i].id_producto%>"
                                 class="btn btn-info">Editar</a>
-                            <a href="/bajaProducto/<%=data[i].id_producto%>" class="btn btn-danger">
+                            <a href="/deleResumen/<%=data[i].id_resumenF%>" class="btn btn-danger">
                                 Eliminar</a>
                         </td>
                     </tr>

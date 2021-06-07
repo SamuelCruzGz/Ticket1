@@ -16,6 +16,7 @@
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.7",
     "sequelize": "^6.6.2",
+    "sweetalert": "^2.1.2",
     "tedious": "^11.0.9"
   }
 }
